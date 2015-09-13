@@ -9,7 +9,7 @@
 --	add to cfg_statusbar.lua file
 --	example: template = "[ %date || Listen: %moc ]"
 if not statusd_moc then
-	statusd_moc = { interval = 5*1000 } -- 5 seconds
+	statusd_moc = { interval = 1000 } -- 1 seconds
 end
 
 local function pipeCmd(cmd)
@@ -20,18 +20,20 @@ local function pipeCmd(cmd)
 	ret = string.gsub(tmp, "\n", "") -- Remove line break
 	return ret
 end
-
+	
 local function listen()
 	local artist
 	local song
 	local listen
+	local state
 	local f=io.open(".moc/pid")
 	if f then
 		f:close()
 		artist = pipeCmd("mocp -Q %artist")
 		song = pipeCmd("mocp -Q %song")
+		state = pipeCmd("mocp -Q %state")
 		listen = artist.." - " ..song
-		return listen
+		return state..": "..listen
 	else return "N/A"
 	end
 end
