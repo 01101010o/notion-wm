@@ -33,7 +33,11 @@ local function listen()
 		song = pipeCmd("mocp -Q %song")
 		state = pipeCmd("mocp -Q %state")
 		listen = artist.." - " ..song
-		return state..": "..listen
+		if state == "PLAY" then
+			return "► "..listen
+		else
+			return "▮▮ "..listen
+		end
 	else return "N/A"
 	end
 end
