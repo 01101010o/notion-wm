@@ -26,14 +26,14 @@ local function BATTERY()
 	local AC = pipeCmd('cat /sys/class/power_supply/AC/online')
 	local TIME
 	if AC == '1' then
-		TIME = 'None'
+		TIME = 'AC'
 	else
 		local now = pipeCmd('cat /sys/class/power_supply/BAT0/charge_now')
 		local current = pipeCmd('cat /sys/class/power_supply/BAT0/current_now')
 		local time = now/current
 		local hours = math.floor(time)
 		local mins = math.floor((time - hours)*60)
-		TIME = string.format("%02d:%02d", hours, mins)
+		TIME = "Time: "..string.format("%02d:%02d", hours, mins)
 	end
 	return TIME
 end
