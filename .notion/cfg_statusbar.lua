@@ -41,8 +41,11 @@ mod_statusbar.create{
     -- right, respectively, and %systray is a placeholder for system tray
     -- windows and icons.
     --
-   template="[ %date || Temp: %temp || Batt: %batt %timebatt || %moc ]" 
-    --template="< %date >|< load: %load > %filler%systray",
+    --AC
+    template="[ %date || Temp: %temp || Batt: %batt %timebatt || %moc ]"
+    --Battery
+    --template="[ %date || Batt: %batt %timebatt ]"
+    --Example
     --template="[ %date || load: %05load_1min || mail: %02mail_new/%02mail_total ] %filler%systray",
 }
 
