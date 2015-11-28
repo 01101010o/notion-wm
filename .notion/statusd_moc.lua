@@ -38,7 +38,7 @@ local function listen()
 		else
 			return "▮▮ "..listen
 		end
-	else return "N/A"
+	else return "■"
 	end
 end
 

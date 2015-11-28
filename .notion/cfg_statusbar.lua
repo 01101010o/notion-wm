@@ -42,7 +42,7 @@ mod_statusbar.create{
     -- windows and icons.
     --
     --AC
-    template="[ %date || Temp: %temp || Batt: %batt %timebatt || %moc ]"
+    template="%date ║ %temp ║ Batt: %batt %timebatt ║ %moc"
     --Battery
     --template="[ %date || Batt: %batt %timebatt ]"
     --Example

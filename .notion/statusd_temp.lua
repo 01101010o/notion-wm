@@ -26,7 +26,7 @@ local function THERMAL()
 end
 
 local function update_temp()
-	statusd.inform("temp", THERMAL() .. "°")
+	statusd.inform("temp", THERMAL() .. "°C")
 	if tonumber(THERMAL()) > 80 then
 		statusd.inform("temp_hint", "critical")
 	elseif tonumber(THERMAL()) > 60 then
